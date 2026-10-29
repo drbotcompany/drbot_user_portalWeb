@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/styles.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portal Web</title>
+    </head>
+    <body class="home-page">
+        <header class="topbar">
+            <section class="topbar-inner">
+                <article class="brand">
+                    <img class="brand-logo" src="assets/images/drbot_logo_transparente.png" alt="DRBOT">
+                </article>
+                <nav class="header-actions" aria-label="Opciones de cuenta">
+                    <a class="sign-in" id="home-session-action" href="static/login.html">Iniciar sesión</a>
+                    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false">
+                        <span class="theme-icon" aria-hidden="true"></span>
+                        <span class="theme-label">Modo oscuro</span>
+                    </button>
+                </nav>
+            </section>
+        </header>
+        <main class="page-shell">
+            <section class="page-heading">
+                <span class="eyebrow">TU ESPACIO PERSONAL</span>
+                <h3 class="page-title">Mi carpeta de salud</h3>
+            </section>
+
+            <section class="health-grid">
+                <a class="health-card card-clinical" href="static/administrative.html">
+                    <span class="card-icon" aria-hidden="true">+</span>
+                    <p class="card-title">Mis datos administrativos</p>
+                </a>
+                <a class="health-card card-health" href="#">
+                    <span class="card-icon" aria-hidden="true">♡</span>
+                    <p class="card-title">Datos de mi salud</p>
+                </a>
+                <a class="health-card card-admin" href="static/clinicData.html">
+                    <span class="card-icon" aria-hidden="true">⌖</span>
+                    <p class="card-title">Mi información clínica </p>
+                </a>
+                <a class="health-card card-appointments" href="#">
+                    <span class="card-icon" aria-hidden="true">▦</span>
+                    <p class="card-title">Mis citas</p>
+                </a>
+            </section>
+        </main>
+        <footer class="page-footer">
+            <section>
+                <a href="/static/help.html">Ayuda</a>
+            </section>
+            <section>
+                <p>DRBOT · Toda tu salud a tu alcance</p>
+            </section>
+        </footer>
+        <script src="js/theme.js"></script>
+        <script type="module" src="js/home-page.js"></script>
+    </body>
+</html>
+

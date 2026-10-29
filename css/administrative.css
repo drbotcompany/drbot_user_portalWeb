@@ -1,0 +1,143 @@
+@import url("./common.css");
+
+body
+{
+    background: radial-gradient(ellipse at 88% -2%, var(--glow), transparent 27rem), var(--canvas);
+
+}
+
+.administrative-page .breadcrumbs
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.administrative-page .breadcrumbs a
+{
+    color: var(--brand);
+    text-decoration: none;
+}
+
+.administrative-page .breadcrumbs a:hover
+{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.administrative-page .breadcrumbs > span:nth-child(2)
+{
+    color: var(--muted);
+}
+
+.administrative-page
+{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.administrative-page .content
+{
+    width: min(100% - 48px, 940px);
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 4rem) 0;
+    flex: 1;
+}
+
+.administrative-page .page-intro
+{
+    margin-bottom: 2rem;
+}
+
+.administrative-page h1
+{
+    margin: 0.5rem 0;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.1;
+}
+
+.administrative-page .page-intro p,
+.administrative-page .profile-panel header p
+{
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.administrative-page .profile-panels
+{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.administrative-page .profile-panel
+{
+    min-width: 0;
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    background-color: var(--surface);
+    box-shadow: 0 0.5rem 1.5rem var(--shadow);
+}
+
+.administrative-page .profile-panel h2
+{
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.administrative-page .profile-panel header p
+{
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+}
+
+.administrative-page .profile-field
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--line);
+}
+
+.administrative-page .profile-field span
+{
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.administrative-page .profile-field strong
+{
+    overflow-wrap: anywhere;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.administrative-page .coverage-panel:not(.has-coverage)
+{
+    opacity: 0.72;
+}
+
+.administrative-page .reference-panel
+{
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 640px)
+{
+    .administrative-page .profile-panels
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .administrative-page .reference-panel
+    {
+        grid-column: auto;
+    }
+}

@@ -1,0 +1,227 @@
+@import url("./common.css");
+
+/* Ayuda */
+.breadcrumbs
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.breadcrumbs a
+{
+    color: var(--brand);
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover
+{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.breadcrumbs > span:nth-child(2)
+{
+    color: #a9b8b2;
+}
+
+.page-intro
+{
+    margin-bottom: 24px;
+}
+
+.page-intro p
+{
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.help-content
+{
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(230px, .8fr);
+    align-items: start;
+    gap: 17px;
+}
+
+.faq-list
+{
+    display: grid;
+    gap: 10px;
+}
+
+.faq-item
+{
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+    box-shadow: 0 5px 18px var(--shadow);
+}
+
+.faq-item summary
+{
+    position: relative;
+    padding: 16px 47px 16px 18px;
+    color: var(--card-heading);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker
+{
+    display: none;
+}
+
+.faq-item summary::after
+{
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    color: var(--brand);
+    content: "+";
+    font-size: 20px;
+    font-weight: 400;
+    transform: translateY(-50%);
+}
+
+.faq-item[open] summary::after
+{
+        content: "\2212";
+}
+
+.faq-item[open] summary
+{
+    border-bottom: 1px solid var(--line);
+}
+
+.faq-item p
+{
+    margin: 0;
+    padding: 13px 18px 16px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.faq-item summary:focus-visible
+{
+    outline: 3px solid #4ca997;
+    outline-offset: -3px;
+}
+
+.contact-card
+{
+    display: grid;
+    justify-items: start;
+    gap: 13px;
+    padding: 21px;
+    border: 1px solid var(--hero-border);
+    border-radius: 16px;
+    background: linear-gradient(145deg, var(--hero-start), var(--hero-end));
+}
+
+.contact-icon
+{
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--brand);
+    border-radius: 13px;
+    color: var(--brand);
+    font-size: 19px;
+}
+
+.contact-card h2
+{
+    margin: 0;
+    color: var(--heading);
+    font-size: 15px;
+    letter-spacing: -.02em;
+}
+
+.contact-card p
+{
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.contact-card a
+{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--brand);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.contact-card a:hover, .account-prompt a:hover
+{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.contact-card a span
+{
+    transition: transform .18s ease;
+}
+
+.contact-card a:hover span
+{
+    transform: translateX(3px);
+}
+
+.account-prompt
+{
+    margin: 18px 2px 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.account-prompt a
+{
+    color: var(--brand);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+@media (max-width: 700px)
+{
+    .breadcrumbs
+    {
+        margin-bottom: 17px;
+    }
+
+    .help-content
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card
+    {
+        grid-template-columns: auto 1fr;
+        align-items: center;
+    }
+
+    .contact-icon
+    {
+        grid-row: span 2;
+    }
+
+    .contact-card a
+    {
+        grid-column: 2;
+    }
+}

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f8f6">
+    <title>Mi información clínica | DRBOT</title>
+    <link rel="stylesheet" href="../css/clinicData.css">
+</head>
+<body class="clinic-data-page auth-checking">
+    <header class="topbar">
+        <a class="brand" href="../index.html" aria-label="DRBOT, mi carpeta de salud">
+            <img src="../assets/images/drbot_logo_transparente.png" alt="DRBOT">
+        </a>
+        <nav class="header-actions" aria-label="Opciones de cuenta">
+            <a class="sign-in" id="home-session-action" href="login.html">Iniciar sesión</a>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false">
+                <span class="theme-icon" aria-hidden="true"></span>
+                <span class="theme-label">Modo oscuro</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="content">
+        <nav class="breadcrumbs" aria-label="Ruta de navegación">
+            <a href="../index.html">Mi carpeta de salud</a>
+            <span aria-hidden="true">›</span>
+            <span aria-current="page">Mi información clínica</span>
+        </nav>
+
+        <header class="page-intro">
+            <span class="eyebrow">MI HISTORIAL</span>
+            <h1>Mi información clínica</h1>
+            <p>Consulta tus recetas, informes médicos y enfermedades registradas.</p>
+        </header>
+
+        <div class="clinical-tabs">
+            <input class="tab-selector" type="radio" name="clinical-tab" id="tab-prescriptions" checked>
+            <input class="tab-selector" type="radio" name="clinical-tab" id="tab-reports">
+            <input class="tab-selector" type="radio" name="clinical-tab" id="tab-conditions">
+
+            <nav class="clinical-tab-bar" aria-label="Apartados de información clínica">
+                <label for="tab-prescriptions">Recetas</label>
+                <label for="tab-reports">Informes</label>
+                <label for="tab-conditions">Enfermedades</label>
+            </nav>
+
+            <div class="clinical-panels">
+            <section class="clinical-section prescriptions-section" aria-labelledby="prescriptions-title">
+            <header class="section-heading">
+                <div>
+                    <h2 id="prescriptions-title">Recetas</h2>
+                    <p>Tratamientos y medicamentos prescritos.</p>
+                </div>
+            </header>
+            <ul class="clinical-list prescriptions-list" aria-label="Recetas">
+                <li class="clinical-record prescription-record">
+                    <h3>Nombre del medicamento</h3>
+                    <dl>
+                        <div><dt>Dosis</dt><dd>Información no disponible</dd></div>
+                        <div><dt>Fecha de prescripción</dt><dd>Información no disponible</dd></div>
+                        <div><dt>Profesional</dt><dd>Información no disponible</dd></div>
+                    </dl>
+                    <p class="record-status">Estado: información no disponible</p>
+                </li>
+            </ul>
+            <p class="empty-state" hidden>No hay recetas registradas.</p>
+            </section>
+
+        <section class="clinical-section reports-section" aria-labelledby="reports-title">
+            <header class="section-heading">
+                <div>
+                    <h2 id="reports-title">Informes médicos</h2>
+                    <p>Documentos e informes de tus consultas.</p>
+                </div>
+            </header>
+            <ul class="clinical-list reports-list" aria-label="Informes médicos">
+                <li class="clinical-record report-record">
+                    <h3>Nombre del informe</h3>
+                    <dl>
+                        <div><dt>Fecha</dt><dd>Información no disponible</dd></div>
+                        <div><dt>Especialidad</dt><dd>Información no disponible</dd></div>
+                        <div><dt>Profesional</dt><dd>Información no disponible</dd></div>
+                    </dl>
+                    <p>Descripción: información no disponible.</p>
+                    <a class="report-link" href="#">Consultar informe</a>
+                </li>
+            </ul>
+            <p class="empty-state" hidden>No hay informes médicos registrados.</p>
+            </section>
+
+        <section class="clinical-section conditions-section" aria-labelledby="conditions-title">
+            <header class="section-heading">
+                <div>
+                    <h2 id="conditions-title">Enfermedades y diagnósticos</h2>
+                    <p>Afecciones y diagnósticos incluidos en tu historial.</p>
+                </div>
+            </header>
+            <ul class="clinical-list conditions-list" aria-label="Enfermedades y diagnósticos">
+                <li class="clinical-record condition-record">
+                    <h3>Nombre de la enfermedad o diagnóstico</h3>
+                    <dl>
+                        <div><dt>Fecha de diagnóstico</dt><dd>Información no disponible</dd></div>
+                        <div><dt>Estado</dt><dd>Información no disponible</dd></div>
+                        <div><dt>Profesional</dt><dd>Información no disponible</dd></div>
+                    </dl>
+                    <p>Observaciones: información no disponible.</p>
+                </li>
+            </ul>
+            <p class="empty-state" hidden>No hay enfermedades ni diagnósticos registrados.</p>
+            </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <a href="../index.html">Volver a mi carpeta de salud</a>
+        <span>DRBOT · Toda tu salud a tu alcance</span>
+    </footer>
+
+    <script src="../js/theme.js"></script>
+    <script type="module" src="../js/home-page.js"></script>
+    <script type="module" src="../js/require-session.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f8f6">
+    <title>Mis datos administrativos | DRBOT</title>
+
+    <link rel="stylesheet" href="../css/administrative.css">
+</head>
+<body class="administrative-page auth-checking">
+    <header class="topbar">
+        <a class="brand" href="../index.html" aria-label="DRBOT, mi carpeta de salud">
+            <img src="../assets/images/drbot_logo_transparente.png" alt="DRBOT">
+        </a>
+        <nav class="header-actions" aria-label="Opciones de cuenta">
+            <button class="sign-out" id="sign-out" type="button">Cerrar sesión</button>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false">
+                <span class="theme-icon" aria-hidden="true"></span>
+                <span class="theme-label">Modo oscuro</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="content">
+        <nav class="breadcrumbs" aria-label="Ruta de navegación">
+            <a href="../index.html">Mi carpeta de salud</a>
+            <span aria-hidden="true">›</span>
+            <span aria-current="page">Mis datos administrativos</span>
+        </nav>
+        <header class="page-intro">
+            <span class="eyebrow">MI PERFIL</span>
+            <h1>Mis datos administrativos</h1>
+            <p>Consulta tus datos personales, de contacto y cobertura.</p>
+        </header>
+
+        <div class="profile-panels">
+            <section class="profile-panel">
+                <header>
+                    <div>
+                        <h2>Datos personales</h2>
+                        <p>Información de identificación</p>
+                    </div>
+                </header>
+
+                <div class="profile-field">
+                    <span>Nombre y apellidos</span>
+                    <strong id="full-name">Cargando…</strong>
+                </div>
+
+                <div class="profile-field">
+                    <span>UID de paciente</span>
+                    <strong id="patient-uid">Cargando…</strong>
+                </div>
+
+            </section>
+
+            <section class="profile-panel">
+                <header>
+                    <div>
+                        <h2>Datos de contacto</h2>
+                        <p>Cómo podemos contactar contigo</p>
+                    </div>
+                </header>
+
+                <div class="profile-field">
+                    <span>Correo electrónico</span>
+                    <strong id="contact-email">Cargando…</strong>
+                </div>
+
+                <div class="profile-field">
+                    <span>Teléfono</span>
+                    <strong id="contact-phone">Cargando…</strong>
+                </div>
+
+            </section>
+
+            <section class="profile-panel coverage-panel public-coverage-panel">
+                <header>
+                    <div>
+                        <h2>Cobertura pública</h2>
+                        <p>Datos de tu tarjeta sanitaria</p>
+                    </div>
+                </header>
+
+                <div class="profile-field">
+                    <span>Número de tarjeta</span>
+                    <strong id="public-card-number">Cargando…</strong>
+                </div>
+
+                <div class="profile-field">
+                    <span>Centro de salud</span>
+                    <strong id="public-health-center">Cargando…</strong>
+                </div>
+            </section>
+
+            <section class="profile-panel coverage-panel private-coverage-panel">
+                <header>
+                    <div>
+                        <h2>Cobertura privada</h2>
+                        <p>Datos de tu seguro privado</p>
+                    </div>
+                </header>
+
+                <div class="profile-field">
+                    <span>Aseguradora</span>
+                    <strong id="private-company">Cargando…</strong>
+                </div>
+
+                <div class="profile-field">
+                    <span>Número de tarjeta</span>
+                    <strong id="private-card-number">Cargando…</strong>
+                </div>
+            </section>
+
+            <section class="profile-panel reference-panel">
+                <header>
+                    <div>
+                        <h2>Centros de referencia</h2>
+                        <p>Centros médicos asociados a tu perfil</p>
+                    </div>
+                </header>
+
+                <div class="profile-field">
+                    <span>Centro de atención primaria</span>
+                    <strong data-patient-field="references.primaryCareCenter">Cargando…</strong>
+                </div>
+
+                <div class="profile-field">
+                    <span>Centro especialista</span>
+                    <strong data-patient-field="references.specialistCenter">Cargando…</strong>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <a href="../index.html">Volver a mi carpeta</a>
+        <span>DRBOT · Toda tu salud a tu alcance</span>
+    </footer>
+
+    <script src="../js/theme.js"></script>
+    <script type="module" src="../js/require-session.js"></script>
+</body>
+</html>
