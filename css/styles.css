@@ -275,14 +275,27 @@
 
 :root[data-theme="dark"] .home-page .card-admin
 {
-    --accent: #e0ae7d;
-    --tint: #4a3c30;
+    --accent: #b18686;
+    --tint: #9e8976;
 }
 
 :root[data-theme="dark"] .home-page .card-appointments
 {
     --accent: #b9a9e7;
     --tint: #403956;
+}
+
+
+:root[data-theme="dark"] .home-page .card-appointments
+{
+    --accent: #b9a9e7;
+    --tint: #403956;
+}
+
+:root[data-theme="dark"] .home-page .drbot
+{
+    --accent: #b9a9e7;
+    --tint: #982b62;
 }
 
 .home-page .card-icon
@@ -303,7 +316,7 @@
 .home-page .card-title
 {
     z-index: 1;
-    max-width: 230px;
+    min-width: 230px;
     margin: 0;
     color: var(--card-heading);
     font-size: 17px;
@@ -348,6 +361,13 @@
 {
     outline: 3px solid #4ca997;
     outline-offset: 4px;
+}
+
+.home-page .drbot 
+{
+    grid-column: 1 / 3;
+    --accent: #b9a9e7;
+    --tint: #bb97a9da;
 }
 
 @media (max-width: 620px)
@@ -420,6 +440,7 @@
         grid-template-columns: 1fr;
     }
 
+
     .home-page .health-card
     {
         min-height: 100px;
@@ -432,4 +453,10 @@
     {
         margin: 0;
     }
+
+    .drbot
+    {
+        grid-column: 1;
+    }
+
 }

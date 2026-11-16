@@ -1,0 +1,248 @@
+.diagnosis-content
+{
+    width: min(100% - 48px, 820px);
+    margin-top: 36px;
+}
+
+.breadcrumbs
+{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 28px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.breadcrumbs a
+{
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.breadcrumbs a:hover
+{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.page-intro
+{
+    padding: 30px 34px;
+    border: 1px solid var(--hero-border);
+    border-radius: 20px;
+    background: linear-gradient(115deg, var(--hero-start), var(--hero-end));
+}
+
+.page-intro p
+{
+    max-width: 600px;
+    margin: 10px 0 0;
+    color: var(--muted);
+}
+
+.diagnosis-notice
+{
+    margin: 20px 0;
+    padding: 16px 19px;
+    border: 1px solid #ead9a8;
+    border-left: 4px solid #d7a83e;
+    border-radius: 12px;
+    background: #fff9e9;
+    color: #66552d;
+    font-size: 13px;
+}
+
+:root[data-theme="dark"] .diagnosis-notice
+{
+    border-color: #756337;
+    background: #332d1e;
+    color: #f0dfad;
+}
+
+.diagnosis-form
+{
+    padding: 25px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 8px 28px var(--shadow);
+}
+
+.feature-fields
+{
+    display: contents;
+}
+
+.diagnosis-fieldset
+{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 20px;
+    min-width: 0;
+    margin: 0;
+    padding: 5px 0 12px;
+    border: 0;
+}
+
+.diagnosis-fieldset legend
+{
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 0 0 13px;
+    border-bottom: 1px solid var(--line);
+    color: var(--heading);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.form-field
+{
+    margin: 0 0 13px;
+}
+
+.form-field label
+{
+    display: inline-block;
+    margin-bottom: 7px;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-field input,
+.form-field select
+{
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+    font-size: 14px;
+}
+
+.form-field input:focus,
+.form-field select:focus
+{
+    border-color: var(--brand);
+    outline: 3px solid color-mix(in srgb, var(--brand) 20%, transparent);
+}
+
+.connection-status
+{
+    margin: 12px 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.submit-button
+{
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 11px;
+    background: var(--brand);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+}
+
+.submit-button:disabled
+{
+    background: #a7b8b2;
+    color: #f7faf8;
+    cursor: not-allowed;
+}
+
+.diagnosis-result
+{
+    margin-top: 22px;
+    padding: 20px;
+    border: 1px solid var(--hero-border);
+    border-radius: 14px;
+    background: linear-gradient(115deg, var(--hero-start), var(--surface));
+    text-align: center;
+}
+
+.diagnosis-result h2
+{
+    margin: 0 0 5px;
+    color: var(--heading);
+    font-size: 17px;
+}
+
+.diagnosis-result p
+{
+    margin: 5px 0;
+    color: var(--muted);
+}
+
+.diagnosis-result strong
+{
+    color: var(--brand);
+    font-size: 32px;
+}
+
+.diagnosis-result .result-model
+{
+    font-size: 12px;
+}
+
+.prediction-list
+{
+    display: grid;
+    grid-template-columns: minmax(130px, .7fr) minmax(0, 1.3fr);
+    gap: 10px 16px;
+    margin: 18px 0;
+    text-align: left;
+}
+
+.prediction-list dt
+{
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.prediction-list dd
+{
+    margin: 0;
+    color: var(--heading);
+    font-weight: 700;
+}
+
+@media (max-width: 620px)
+{
+    .diagnosis-content
+    {
+        width: calc(100% - 32px);
+        margin-top: 24px;
+    }
+
+    .breadcrumbs
+    {
+        margin-bottom: 20px;
+    }
+
+    .page-intro
+    {
+        padding: 24px 21px;
+        border-radius: 16px;
+    }
+
+    .diagnosis-form
+    {
+        padding: 19px 16px;
+    }
+
+    .diagnosis-fieldset
+    {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
