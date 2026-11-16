@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f4f8f6">
-    <meta name="description" content="Predicción orientativa de enfermedad, severidad y plan de tratamiento.">
-    <title>Predicción múltiple | DRBOT</title>
+    <meta name="description" content="Predicción orientativa de enfermedad a partir de síntomas.">
+    <title>Predicción por síntomas | DRBOT</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/preliminaryDiagnosis.css">
 </head>
@@ -27,84 +27,38 @@
         <nav class="breadcrumbs" aria-label="Ruta de navegación">
             <a href="../index.html">Mi carpeta de salud</a>
             <span aria-hidden="true"> › </span>
-            <span aria-current="page">Predicción múltiple</span>
+            <span aria-current="page">Predicción por síntomas</span>
         </nav>
 
         <header class="page-intro">
             <span class="eyebrow">HERRAMIENTA ORIENTATIVA</span>
-            <h1>Predicción preliminar</h1>
-            <p>Completa los datos de entrada para obtener una predicción orientativa de enfermedad, severidad y plan de tratamiento.</p>
+            <h1>Predicción orientativa por síntomas</h1>
+            <p>Selecciona los síntomas presentes para que el modelo estime una posible enfermedad.</p>
         </header>
 
         <aside class="diagnosis-notice" aria-label="Aviso importante">
-            <strong>Importante:</strong> estos resultados no son un diagnóstico médico ni una recomendación terapéutica, y no sustituyen la valoración de un profesional sanitario. Proyecto académico con datos sintéticos.
+            <strong>Importante:</strong> esta predicción no es un diagnóstico médico ni sustituye la valoración de un profesional sanitario. Proyecto académico con datos sintéticos.
         </aside>
 
-        <p id="schema-status" class="connection-status" role="status" aria-live="polite">Rellena los campos de entrada del paciente.</p>
+        <p id="schema-status" class="connection-status" role="status" aria-live="polite">Conectando con el servidor de predicción…</p>
         <form id="diagnosis-form" class="diagnosis-form">
             <fieldset class="diagnosis-fieldset">
-                <legend>Datos de entrada</legend>
-                <p class="form-field">
-                    <label for="age">Edad</label><br>
-                    <input id="age" name="Age" type="number" min="0" max="120" step="1" required placeholder="Ej.: 45">
-                </p>
-                <p class="form-field">
-                    <label for="gender">Sexo</label><br>
-                    <select id="gender" name="Gender" required>
-                        <option value="" selected disabled>Selecciona una opción</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-                </p>
-                <p class="form-field">
-                    <label for="symptom-1">Síntoma 1</label><br>
-                    <select id="symptom-1" name="Symptom_1" required>
-                        <option value="" selected disabled>Selecciona una opción</option>
-                        <option>Fatigue</option><option>Sore throat</option><option>Body ache</option><option>Shortness of breath</option><option>Runny nose</option><option>Headache</option><option>Cough</option><option>Fever</option>
-                    </select>
-                </p>
-                <p class="form-field">
-                    <label for="symptom-2">Síntoma 2</label><br>
-                    <select id="symptom-2" name="Symptom_2" required>
-                        <option value="" selected disabled>Selecciona una opción</option>
-                        <option>Fatigue</option><option>Sore throat</option><option>Body ache</option><option>Shortness of breath</option><option>Runny nose</option><option>Headache</option><option>Cough</option><option>Fever</option>
-                    </select>
-                </p>
-                <p class="form-field">
-                    <label for="symptom-3">Síntoma 3</label><br>
-                    <select id="symptom-3" name="Symptom_3" required>
-                        <option value="" selected disabled>Selecciona una opción</option>
-                        <option>Fatigue</option><option>Sore throat</option><option>Body ache</option><option>Shortness of breath</option><option>Runny nose</option><option>Headache</option><option>Cough</option><option>Fever</option>
-                    </select>
-                </p>
-                <p class="form-field">
-                    <label for="heart-rate">Frecuencia cardíaca (lpm)</label><br>
-                    <input id="heart-rate" name="Heart_Rate_bpm" type="number" min="0" step="1" required placeholder="Ej.: 75">
-                </p>
-                <p class="form-field">
-                    <label for="body-temperature">Temperatura corporal (°C)</label><br>
-                    <input id="body-temperature" name="Body_Temperature_C" type="number" min="25" max="45" step="0.1" required placeholder="Ej.: 37.0">
-                </p>
-                <p id="high-pressure-field" class="form-field">
-                    <label for="high_pressure">Presión sistólica (alta, mmHg)</label><br>
-                    <input id="high_pressure" name="high_pressure" type="number" min="0" max="300" step="any" placeholder="Ej.: 120" required>
-                </p>
-                <p id="low-pressure-field" class="form-field">
-                    <label for="low_pressure">Presión diastólica (baja, mmHg)</label><br>
-                    <input id="low_pressure" name="low_pressure" type="number" min="0" max="200" step="any" placeholder="Ej.: 80" required>
-                </p>
-                <p class="form-field">
-                    <label for="oxygen-saturation">Saturación de oxígeno (%)</label><br>
-                    <input id="oxygen-saturation" name="Oxygen_Saturation_%" type="number" min="0" max="100" step="1" required placeholder="Ej.: 98">
-                </p>
+                <legend>Síntomas presentes</legend>
+                <div class="symptom-picker">
+                    <label class="symptom-search-label" for="symptom-search">Busca y selecciona uno o varios síntomas</label>
+                    <input id="symptom-search" class="symptom-search" type="search" placeholder="Buscar síntoma…" autocomplete="off">
+                    <p id="selected-count" class="selected-count">0 síntomas seleccionados</p>
+                    <div id="symptom-options" class="symptom-options" aria-label="Lista de síntomas"></div>
+                </div>
             </fieldset>
 
-            <p id="diagnosis-status" class="connection-status" role="status" aria-live="polite">Completa los campos y solicita las predicciones.</p>
-            <button id="diagnosis-submit" class="submit-button" type="submit">Predecir resultados</button>
+            <p id="diagnosis-status" class="connection-status" role="status" aria-live="polite">Selecciona los síntomas y solicita una predicción.</p>
+            <button id="diagnosis-submit" class="submit-button" type="submit" disabled>Predecir enfermedad</button>
             <section id="diagnosis-result" class="diagnosis-result" aria-live="polite" hidden>
-                <h2>Resultados orientativos</h2>
-                <dl id="prediction-list" class="prediction-list"></dl>
-                <p id="result-model" class="result-model"></p>
+                <h2>Enfermedad estimada</h2>
+                <p><strong id="predicted-disease">—</strong></p>
+                <p id="prediction-confidence" class="result-model"></p>
+                <ol id="alternative-predictions" class="alternative-predictions"></ol>
             </section>
         </form>
     </main>
