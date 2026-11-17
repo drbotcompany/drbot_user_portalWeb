@@ -10,6 +10,7 @@ const status = document.querySelector("#diagnosis-status");
 const result = document.querySelector("#diagnosis-result");
 const predictedDisease = document.querySelector("#predicted-disease");
 const predictionConfidence = document.querySelector("#prediction-confidence");
+const usedModel = document.querySelector("#used-model");
 const alternativePredictions = document.querySelector("#alternative-predictions");
 
 function updateSelectedCount() {
@@ -45,12 +46,15 @@ async function loadSchema() {
     if (!Array.isArray(schema.symptoms) || schema.symptoms.length === 0) {
       throw new Error("La API no ha devuelto la lista de síntomas.");
     }
+    if (!Array.isArray(schema.models) || !schema.models.includes("Random Forest")) {
+      throw new Error("El Random Forest todavía no está entrenado. Ejecuta el entrenamiento desde app.py.");
+    }
 
     symptomOptions.replaceChildren();
     schema.symptoms.forEach(addSymptom);
     submitButton.disabled = false;
     schemaStatus.textContent =
-      `Lista cargada: ${schema.symptoms.length} síntomas disponibles para seleccionar.`;
+      `Lista cargada: ${schema.symptoms.length} síntomas. El modelo activo es Random Forest.`;
   } catch (error) {
     schemaStatus.textContent =
       `No se pudieron cargar los síntomas: ${error.message}. Arranca la API y entrena el modelo desde app.py.`;
@@ -77,7 +81,7 @@ form?.addEventListener("submit", async (event) => {
     const response = await fetch(`${API_BASE}/predict`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ symptoms }),
+      body: JSON.stringify({ symptoms, model: "Random Forest" }),
     });
     const data = await response.json();
     if (!response.ok) {
@@ -92,6 +96,7 @@ form?.addEventListener("submit", async (event) => {
     predictionConfidence.textContent = Number.isFinite(confidence)
       ? `Confianza estimada por el modelo: ${(confidence * 100).toFixed(1)}%`
       : "";
+    usedModel.textContent = `Modelo utilizado: ${data.model}`;
 
     alternativePredictions.replaceChildren();
     for (const prediction of data.top_predictions ?? []) {
